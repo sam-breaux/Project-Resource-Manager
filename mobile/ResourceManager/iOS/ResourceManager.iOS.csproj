@@ -106,6 +106,5 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
-  <Import Project="..\ResourceManager\ResourceManager.projitems" Label="Shared" Condition="Exists('..\ResourceManager\ResourceManager.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Constants\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="ViewModels\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Constants\TextConstants.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextConstants.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Constants\TextConstants.Designer.cs">
+      <DependentUpon>TextConstants.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

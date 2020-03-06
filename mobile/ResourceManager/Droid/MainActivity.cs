@@ -1,13 +1,15 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
+using Android.Widget;
+using ResourceManager.Core.ViewModels;
+using ResourceManager.Droid.Views.Base;
 
 namespace ResourceManager.Droid
 {
     [Activity(Label = "Resource Manager", MainLauncher = true, Icon = "@mipmap/icon")]
-    public class MainActivity : Activity
+    public class MainActivity : BaseActivity<MainViewModel>
     {
-        int count = 1;
+        public MainActivity() : base(new MainViewModel()) { }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -19,8 +21,9 @@ namespace ResourceManager.Droid
             // Get our button from the layout resource,
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.myButton);
+            button.Text = ViewModel.ButtonText;
 
-            button.Click += delegate { button.Text = $"{count++} clicks!"; };
+            button.Click +=  delegate { button.Text = ViewModel.Clicks; };
         }
     }
 }

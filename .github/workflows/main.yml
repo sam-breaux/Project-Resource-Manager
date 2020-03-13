@@ -1,5 +1,5 @@
-name: CI on Push and PR
-on: [push, pull_request]
+name: Mobile CI on PR
+on: [pull_request]
 jobs:
   Android:
     runs-on: macos-latest
@@ -11,5 +11,5 @@ jobs:
           nuget restore
       - name: Build Android Project
         run: |
-          cd Droid
+          cd mobile/ResourceManager/Droid
           msbuild ResourceManager.Droid.csproj /t:Rebuild /p:Configuration=Debug

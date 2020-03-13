@@ -1,0 +1,27 @@
+name: Mobile CI on PR
+on: [pull_request]
+jobs:
+  Android:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore NuGet Packages
+        run: |
+          cd mobile/ResourceManager
+          nuget restore
+      - name: Build Android Project
+        run: |
+          cd mobile/ResourceManager/Droid
+          msbuild ResourceManager.Droid.csproj /t:Rebuild /p:Configuration=Debug
+  iOS:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore NuGet Packages
+        run: |
+          cd mobile/ResourceManager
+          nuget restore
+      - name: Build iOS Project
+        run: |
+          cd mobile/ResourceManager/iOS
+          msbuild ResourceManager.iOS.csproj /t:Rebuild /p:Configuration=Debug
